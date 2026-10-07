@@ -1,0 +1,28 @@
+{
+  "Nodes": [
+    {
+      "InstanceId": "i-0abc",
+      "SecurityGroupIds": [
+        "sg-n"
+      ]
+    }
+  ],
+  "SecurityGroups": [
+    {
+      "GroupId": "sg-n",
+      "IpPermissions": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 30000,
+          "ToPort": 32767,
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": []
+        }
+      ]
+    }
+  ]
+}

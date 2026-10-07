@@ -1,0 +1,30 @@
+{
+  "LoadBalancers": [
+    {
+      "LoadBalancerName": "ngx",
+      "DNSName": "ngx.elb.example.test",
+      "Scheme": "internet-facing",
+      "SecurityGroups": [
+        "sg-ngx"
+      ]
+    }
+  ],
+  "SecurityGroups": [
+    {
+      "GroupId": "sg-ngx",
+      "IpPermissions": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 443,
+          "IpRanges": [
+            {
+              "CidrIp": "0.0.0.0/0"
+            }
+          ],
+          "Ipv6Ranges": []
+        }
+      ]
+    }
+  ]
+}

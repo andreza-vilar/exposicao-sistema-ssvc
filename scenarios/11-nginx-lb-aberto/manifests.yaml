@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: app, namespace: demo}
+spec:
+  selector: {matchLabels: {app: web}}
+  template:
+    metadata: {labels: {app: web}}
+    spec: {containers: [{name: web, image: nginx, ports: [{containerPort: 8080}]}]}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: demo
+spec:
+  type: ClusterIP
+  selector: {app: web}
+  ports: [{port: 80, targetPort: 8080}]
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: demo
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: app.exemplo.test
+    http:
+      paths:
+      - {path: /, pathType: Prefix, backend: {service: {name: web, port: {number: 80}}}}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx-controller
+  namespace: demo
+  labels: {app.kubernetes.io/name: ingress-nginx}
+spec:
+  type: LoadBalancer
+  selector: {app.kubernetes.io/name: ingress-nginx}
+  ports: [{port: 80, targetPort: 8080}]
+status:
+  loadBalancer:
+    ingress: [{hostname: ngx.elb.example.test}]

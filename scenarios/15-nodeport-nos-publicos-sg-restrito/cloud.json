@@ -1,0 +1,29 @@
+{
+  "Nodes": [
+    {
+      "InstanceId": "i-0abc",
+      "SecurityGroupIds": [
+        "sg-n"
+      ],
+      "PublicIpAddress": "203.0.113.10"
+    }
+  ],
+  "SecurityGroups": [
+    {
+      "GroupId": "sg-n",
+      "IpPermissions": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 30000,
+          "ToPort": 32767,
+          "IpRanges": [
+            {
+              "CidrIp": "198.51.100.0/24"
+            }
+          ],
+          "Ipv6Ranges": []
+        }
+      ]
+    }
+  ]
+}

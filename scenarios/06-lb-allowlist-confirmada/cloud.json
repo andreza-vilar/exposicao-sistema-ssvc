@@ -1,0 +1,30 @@
+{
+  "LoadBalancers": [
+    {
+      "LoadBalancerName": "c",
+      "DNSName": "c.elb.example.test",
+      "Scheme": "internet-facing",
+      "SecurityGroups": [
+        "sg-c"
+      ]
+    }
+  ],
+  "SecurityGroups": [
+    {
+      "GroupId": "sg-c",
+      "IpPermissions": [
+        {
+          "IpProtocol": "tcp",
+          "FromPort": 80,
+          "ToPort": 443,
+          "IpRanges": [
+            {
+              "CidrIp": "198.51.100.0/24"
+            }
+          ],
+          "Ipv6Ranges": []
+        }
+      ]
+    }
+  ]
+}
