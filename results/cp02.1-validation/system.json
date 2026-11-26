@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "classifier": {
+    "id": "legacy-exposure-analyzer",
+    "sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+    "adapter_id": "cp02.1-workload-selection",
+    "adapter_sha256": "e3ce2654eab02c4ca4404a54f921afa0f16497036852146efc4f2dbb3eea901a"
+  },
+  "mode": "system",
+  "selected_unit": {
+    "type": "manifest_set",
+    "identifier": null
+  },
+  "selected_exposure": "open",
+  "selected_result": null,
+  "selected_legacy_confidence": null,
+  "global_exposure": "open",
+  "aggregation": {
+    "global_strategy": "legacy_ordinal_maximum",
+    "order": [
+      "small",
+      "controlled",
+      "open"
+    ],
+    "global_scope": "all_supported_workloads_in_input",
+    "selected_strategy": "legacy_ordinal_maximum",
+    "normative_system_boundary_assumed": false
+  },
+  "workloads_found": [
+    "Deployment/demo/frontend",
+    "Deployment/demo/backend",
+    "Deployment/demo/worker"
+  ],
+  "global_result": {
+    "system_exposure": "open",
+    "workloads": [
+      {
+        "workload": "Deployment/demo/frontend",
+        "exposure": "open",
+        "confidence": "medium",
+        "entrypoints": [
+          {
+            "entrypoint": "Service/demo/frontend",
+            "level": "open",
+            "confidence": "medium",
+            "evidence": [
+              "[manifesto] Service demo/frontend type=LoadBalancer",
+              "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+            ]
+          }
+        ],
+        "notes": []
+      },
+      {
+        "workload": "Deployment/demo/backend",
+        "exposure": "controlled",
+        "confidence": "medium",
+        "entrypoints": [
+          {
+            "entrypoint": "Cluster/demo/backend",
+            "level": "controlled",
+            "confidence": "medium",
+            "evidence": [
+              "[manifesto] sem Service externo (LoadBalancer/NodePort) nem Ingress",
+              "[manifesto] NetworkPolicy de entrada: none"
+            ]
+          }
+        ],
+        "notes": []
+      },
+      {
+        "workload": "Deployment/demo/worker",
+        "exposure": "small",
+        "confidence": "high",
+        "entrypoints": [
+          {
+            "entrypoint": "Cluster/demo/worker",
+            "level": "small",
+            "confidence": "high",
+            "evidence": [
+              "[manifesto] sem Service externo (LoadBalancer/NodePort) nem Ingress",
+              "[manifesto] NetworkPolicy de entrada: restrictive ['worker-ingress']"
+            ]
+          }
+        ],
+        "notes": []
+      }
+    ]
+  },
+  "inputs": {
+    "manifests": [
+      {
+        "path": "tests/fixtures/cp02.1/multi-workload.yaml",
+        "sha256": "c0e4a2e328c63fdd553b525ee91aac864e1745ea2dd0c1668600bf448a987f27"
+      }
+    ],
+    "snapshot": null
+  },
+  "status": "ok",
+  "errors": [],
+  "limitations": [
+    "Workload é unidade operacional provisória; não equivale automaticamente ao componente vulnerável do SSVC.",
+    "O conjunto de manifestos não define necessariamente a fronteira normativa de um sistema.",
+    "Categorias, evidências, correlações e confiança heurística são as do classificador histórico, sem revisão de regras.",
+    "Confiança low/medium/high é heurística legada, não probabilidade calibrada; não existe confiança global legada.",
+    "Não há associação CVE/biblioteca/função vulnerável nem coleta ou validação operacional de infraestrutura."
+  ]
+}

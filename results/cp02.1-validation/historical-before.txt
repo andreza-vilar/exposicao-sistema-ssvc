@@ -1,0 +1,24 @@
+01-clusterip-netpol-restritiva                       esperado=small       obtido=small       conf=high   OK
+02-clusterip-sem-netpol                              esperado=controlled  obtido=controlled  conf=medium OK
+03-clusterip-netpol-permissiva                       esperado=controlled  obtido=controlled  conf=high   OK
+04-lb-aberto-confirmado-nuvem                        esperado=open        obtido=open        conf=high   OK
+05-lb-interno-confirmado-nuvem                       esperado=controlled  obtido=controlled  conf=high   OK
+06-lb-allowlist-confirmada                           esperado=controlled  obtido=controlled  conf=high   OK
+07-lb-allowlist-no-manifesto-mas-nuvem-aberta        esperado=open        obtido=open        conf=high   OK
+08-lb-sem-fatos-de-nuvem                             esperado=open        obtido=open        conf=medium OK
+09-alb-internet-facing                               esperado=open        obtido=open        conf=high   OK
+10-alb-interno-padrao                                esperado=controlled  obtido=controlled  conf=medium OK
+11-nginx-lb-aberto                                   esperado=open        obtido=open        conf=high   OK
+12-nginx-lb-aberto-com-allowlist                     esperado=controlled  obtido=controlled  conf=high   OK
+13-nodeport-nos-privados                             esperado=controlled  obtido=controlled  conf=high   OK
+14-nodeport-nos-publicos-sg-aberto                   esperado=open        obtido=open        conf=high   OK
+15-nodeport-nos-publicos-sg-restrito                 esperado=controlled  obtido=controlled  conf=high   OK
+16-nlb-controlador-aws-padrao-interno                esperado=controlled  obtido=controlled  conf=medium OK
+
+Acurácia: 16/16 = 100%   subestimativas: 0   superestimativas: 0
+
+Matriz de confusão (linhas = esperado, colunas = obtido)
+            small       controlled  open        
+small       1           0           0           
+controlled  0           9           0           
+open        0           0           6           

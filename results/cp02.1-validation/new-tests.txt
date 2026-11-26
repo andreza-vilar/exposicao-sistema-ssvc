@@ -1,0 +1,31 @@
+test_all_historical_results_equal_in_b1_and_b2 (__main__.UnitSelectionTests) ... ok
+test_analyze_called_once_with_all_resources_and_no_mutation (__main__.UnitSelectionTests) ... ok
+test_cli_json_and_text (__main__.UnitSelectionTests) ... ok
+test_cli_main_module_nonzero_json_error (__main__.UnitSelectionTests) ... ok
+test_determinism_and_json_versioned_contract (__main__.UnitSelectionTests) ... ok
+test_duplicate_target_is_ambiguous_before_legacy_analysis (__main__.UnitSelectionTests) ... ok
+test_duplicates_in_system_or_other_target_reject_whole_input (__main__.UnitSelectionTests) ... ok
+test_empty_directory (__main__.UnitSelectionTests) ... ok
+test_error_from_legacy_never_uses_global_as_selected_fallback (__main__.UnitSelectionTests) ... ok
+test_full_identifier_required (__main__.UnitSelectionTests) ... ok
+test_invalid_files_or_snapshot_return_structured_errors (__main__.UnitSelectionTests) ... ok
+test_invalid_objects_and_missing_workload_identity (__main__.UnitSelectionTests) ... ok
+test_manifest_directory_and_kind_list (__main__.UnitSelectionTests) ... ok
+test_mode_validation (__main__.UnitSelectionTests) ... ok
+test_multiple_workloads_and_explicit_system_strategy (__main__.UnitSelectionTests) ... ok
+test_namespace_omitted_uses_default (__main__.UnitSelectionTests) ... ok
+test_no_supported_workloads (__main__.UnitSelectionTests) ... ok
+test_rejects_external_and_symlink_paths_before_loading (__main__.UnitSelectionTests) ... ok
+test_same_name_different_kinds (__main__.UnitSelectionTests) ... ok
+test_same_name_different_namespaces (__main__.UnitSelectionTests) ... ok
+test_select_controlled_does_not_inherit_open_global (__main__.UnitSelectionTests) ... ok
+test_select_open (__main__.UnitSelectionTests) ... ok
+test_select_small_keeps_evidence_and_notes (__main__.UnitSelectionTests) ... ok
+test_single_workload (__main__.UnitSelectionTests) ... ok
+test_snapshot_changes_only_legacy_inputs_and_confidence (__main__.UnitSelectionTests) ... ok
+test_unknown_target_is_error_with_global_context_not_substitution (__main__.UnitSelectionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.150s
+
+OK

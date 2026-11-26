@@ -1,0 +1,52 @@
+# Fixture sintética de seleção; categorias históricas não são gabarito científico.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: frontend, namespace: demo}
+spec:
+  template:
+    metadata: {labels: {app: frontend}}
+    spec: {containers: [{name: web, image: synthetic/frontend}]}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: frontend, namespace: demo}
+spec:
+  type: LoadBalancer
+  selector: {app: frontend}
+  ports: [{port: 80, targetPort: 8080}]
+status:
+  loadBalancer:
+    ingress: [{hostname: synthetic.elb.example.test}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: backend, namespace: demo}
+spec:
+  template:
+    metadata: {labels: {app: backend}}
+    spec: {containers: [{name: api, image: synthetic/backend}]}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: backend, namespace: demo}
+spec:
+  type: ClusterIP
+  selector: {app: backend}
+  ports: [{port: 80, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: worker, namespace: demo}
+spec:
+  template:
+    metadata: {labels: {app: worker}}
+    spec: {containers: [{name: worker, image: synthetic/worker}]}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: worker-ingress, namespace: demo}
+spec:
+  podSelector: {matchLabels: {app: worker}}
+  policyTypes: [Ingress]
+  ingress:
+    - from: [{podSelector: {matchLabels: {app: scheduler}}}]

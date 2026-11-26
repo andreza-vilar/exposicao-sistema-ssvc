@@ -1,0 +1,26 @@
+test_bad_label_does_not_hide_classification_but_excludes_pair (__main__.ExperimentTests) ... ok
+test_changed_file_during_parse_rejected (__main__.ExperimentTests) ... ok
+test_classification_exception_and_cli_nonzero (__main__.ExperimentTests) ... ok
+test_discovery_sorted_and_ignores_files (__main__.ExperimentTests) ... ok
+test_empty_discovery_nonzero_without_export (__main__.ExperimentTests) ... ok
+test_export_roundtrip_preserves_complete_output_and_csv (__main__.ExperimentTests) ... ok
+test_invalid_cloud_shapes_rejected (__main__.ExperimentTests) ... ok
+test_invalid_json_is_error_not_missing (__main__.ExperimentTests) ... ok
+test_invalid_yaml_records_both_errors (__main__.ExperimentTests) ... ok
+test_launcher_guard_denies_simulated_network_and_process_events (__main__.ExperimentTests) ... ok
+test_main_module_signals_nonzero_system_exit (__main__.ExperimentTests) ... ok
+test_metrics_use_same_paired_denominator (__main__.ExperimentTests) ... ok
+test_missing_manifest_and_label_retained (__main__.ExperimentTests) ... ok
+test_missing_snapshot_not_run_or_paired (__main__.ExperimentTests) ... ok
+test_no_silent_overwrite (__main__.ExperimentTests) ... ok
+test_no_workload_is_execution_error_not_category (__main__.ExperimentTests) ... ok
+test_parser_objects_cannot_leak_mutation_between_modes (__main__.ExperimentTests) ... ok
+test_paths_outside_repository_rejected_before_read (__main__.ExperimentTests) ... ok
+test_real_corpus_inventory_and_reproducible_categorical_results (__main__.ExperimentTests) ... ok
+test_transition_increase_decrease_and_confidence_only (__main__.ExperimentTests) ... ok
+test_valid_snapshot_same_manifest_separate_cloud (__main__.ExperimentTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.127s
+
+OK
