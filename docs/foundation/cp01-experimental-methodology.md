@@ -1,5 +1,7 @@
 # CP01.1 — Proposta de metodologia experimental
 
+> Nota de organização: caminhos e links foram atualizados após o checkpoint. Resultados, hashes e estados de Git descritos abaixo são registros históricos da execução original. Veja o README para a estrutura atual.
+
 Data: 26/11/2026. **Proposta ainda não aprovada pelo orientador. Nenhum cenário novo, coleta ao vivo ou experimento em infraestrutura foi executado.** Execução realizada neste checkpoint limita-se à suíte sintética existente, registrada na [fundamentação, seção 7](cp01-ssvc-foundation.md#7-evidência-operacional-complementar).
 
 ## 1. Pergunta, hipóteses e unidades
@@ -15,10 +17,10 @@ Unidade de medição: componente afetado + implantação + instante + caminhos p
 | Configuração | Entradas e comportamento | Estado atual / restrição |
 |---|---|---|
 | B0 — original | Implementação e versão originais confirmadas por Jan, incluindo regras reais de exposição e modos de revisão | Código indisponível localmente; nenhuma aproximação implementada |
-| B1 — Kubernetes-only | Manifestos do cenário, sem snapshot AWS; annotations AWS permitidas e explicitadas; metadados mínimos de alvo/fronteira | Modo sem `--cloud` existe (`exposure_analyzer.py:293–301`); semântica revisada ainda proposta |
+| B1 — Kubernetes-only | Manifestos do cenário, sem snapshot AWS; annotations AWS permitidas e explicitadas; metadados mínimos de alvo/fronteira | Modo sem `--cloud` existe (`src/exposure_analyzer.py:293–301`); semântica revisada ainda proposta |
 | B2 — Kubernetes + AWS | Exatamente os manifestos de B1, mais snapshot AWS correspondente; mesmo motor, regras e contexto comum | Modo com `--cloud` existe; suficiência/correlação revisadas ainda propostas |
 
-O corpus atual executa uma mistura de modos conforme existência de `cloud.json`, não um experimento pareado (`run_scenarios.py:10–13`). A suíte 16/16 não é um resultado comparativo B0/B1/B2.
+O corpus atual executa uma mistura de modos conforme existência de `cloud.json`, não um experimento pareado (`scripts/run_scenarios.py:10–13`). A suíte 16/16 não é um resultado comparativo B0/B1/B2.
 
 **B0 e interação humana:** a publicação permite revisão/reuso por operador (artigo p. 8, §5.2). Propor como comparação primária a inferência automática inicial confirmada. Não comparar B1/B2 automáticos a B0 corrigido manualmente sem relatar essa diferença. Caso o modo automático original não possa ser isolado, registrar limitação e avaliar a comparabilidade antes de executar. Sem B0 confirmado, publicar apenas comparação B1/B2 e dependência pendente.
 
@@ -102,7 +104,7 @@ Com corpus pequeno e planejado, priorizar análise descritiva e qualitativa. Int
 7. Analisar toda subestimativa e casos contraditórios/inconclusivos; não selecionar apenas exemplos favoráveis.
 8. Relatar resultados negativos, limites e desvios do protocolo.
 
-Metadados mínimos futuros: cenário, componente, família, B0/B1/B2, versões/hash das regras e entradas, fonte normativa, instante, observações independentes, categoria de referência, estado e resultado do método. É proposta de exportação, não formato já implementado (`exposure_analyzer.py:272–301`).
+Metadados mínimos futuros: cenário, componente, família, B0/B1/B2, versões/hash das regras e entradas, fonte normativa, instante, observações independentes, categoria de referência, estado e resultado do método. É proposta de exportação, não formato já implementado (`src/exposure_analyzer.py:272–301`).
 
 ## 7. Ameaças à validade e mitigação
 

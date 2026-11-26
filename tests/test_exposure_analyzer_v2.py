@@ -272,7 +272,7 @@ class UnitSelectionTests(unittest.TestCase):
 
     def test_cli_main_module_nonzero_json_error(self):
         stream = io.StringIO()
-        argv = [str(v2.ROOT / 'exposure_analyzer_v2.py'), '--manifests', str(FIXTURES / 'multi-workload.yaml'),
+        argv = [str(v2.ROOT / 'src' / 'exposure_analyzer_v2.py'), '--manifests', str(FIXTURES / 'multi-workload.yaml'),
                 '--mode', 'target', '--target', 'Deployment/demo/missing', '--format', 'json']
         with patch.object(sys, 'argv', argv), redirect_stdout(stream), self.assertRaises(SystemExit) as raised:
             runpy.run_path(argv[0], run_name='__main__')

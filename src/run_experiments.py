@@ -19,8 +19,8 @@ from time import perf_counter
 import yaml
 from exposure_analyzer import Cloud, LEVELS, RANK, analyze, load_manifests
 
-ROOT = Path(__file__).resolve().parent
-CLASSIFIER = ROOT / 'exposure_analyzer.py'
+ROOT = Path(__file__).resolve().parents[1]
+CLASSIFIER = ROOT / 'src' / 'exposure_analyzer.py'
 CONFIDENCE_NOTE = 'Confiança heurística legada (low/medium/high), não calibrada.'
 LIMITATION = 'Concordância com rótulos sintéticos históricos; não é acurácia científica.'
 

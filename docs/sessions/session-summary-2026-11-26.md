@@ -1,5 +1,7 @@
 # Encerramento da sessão — 26/11/2026
 
+> Nota de organização: caminhos e links foram atualizados após o checkpoint. Resultados, hashes e estados de Git descritos abaixo são registros históricos da execução original. Veja o README para a estrutura atual.
+
 Projeto: classificação determinística de System Exposure do SSVC com dados Kubernetes/AWS. Último checkpoint concluído: **CP02.1**. Nenhum checkpoint posterior foi iniciado ou autorizado. Data no fuso America/Fortaleza.
 
 ## 1. Estado atual do protótipo
@@ -10,11 +12,11 @@ O desenvolvimento desta sessão não demonstra validação científica definitiv
 
 | Componente | Funcionalidade implementada | Referência |
 |---|---|---|
-| Classificador histórico | YAML Kubernetes, JSON sintético AWS opcional, exposição por workload, evidências textuais, confiança heurística e máximo global | [`exposure_analyzer.py`](../exposure_analyzer.py) |
-| Suíte histórica | Verificação dos 16 cenários e rótulos originais | [`run_scenarios.py`](../run_scenarios.py) |
-| Executor experimental | B1/B2 separados, elegibilidade, hashes, resultados completos, comparação pareada, métricas e exportação sem sobrescrita silenciosa | [`run_experiments.py`](../run_experiments.py) |
-| Camada CP02.1 | Modos system/target; identidade Kind/namespace/nome; contexto global; erros estruturados; JSON 1.0.0 e texto | [`exposure_analyzer_v2.py`](../exposure_analyzer_v2.py) |
-| Launcher local | Inicialização sem site/.pth, ambiente limpo nos comandos e bloqueios de auditoria Python para rede/subprocessos/arquivos | [`tools/offline_python.py`](../tools/offline_python.py) |
+| Classificador histórico | YAML Kubernetes, JSON sintético AWS opcional, exposição por workload, evidências textuais, confiança heurística e máximo global | [`src/exposure_analyzer.py`](../../src/exposure_analyzer.py) |
+| Suíte histórica | Verificação dos 16 cenários e rótulos originais | [`scripts/run_scenarios.py`](../../scripts/run_scenarios.py) |
+| Executor experimental | B1/B2 separados, elegibilidade, hashes, resultados completos, comparação pareada, métricas e exportação sem sobrescrita silenciosa | [`src/run_experiments.py`](../../src/run_experiments.py) |
+| Camada CP02.1 | Modos system/target; identidade Kind/namespace/nome; contexto global; erros estruturados; JSON 1.0.0 e texto | [`src/exposure_analyzer_v2.py`](../../src/exposure_analyzer_v2.py) |
+| Launcher local | Inicialização sem site/.pth, ambiente limpo nos comandos e bloqueios de auditoria Python para rede/subprocessos/arquivos | [`tools/offline_python.py`](../../tools/offline_python.py) |
 
 Não foram implementadas regras de exposição revisadas, evidências estruturadas do CP02.2, coleta real, associação CVE→componente ou integração com Copilot. B0 continua pendente.
 
@@ -38,7 +40,7 @@ Nos dez pares, houve **três mudanças de categoria**: cenário 07 Controlled→
 
 A comparação com denominador comum é **7/10 versus 10/10**, sem usar B2 como gabarito. Esses valores são **concordância com rótulos sintéticos históricos**, não acurácia científica ou prova de superioridade de B2. Rótulos e fixtures têm autoria vinculada ao desenvolvimento das regras.
 
-Dados preservados: [resumo JSON](../results/cp01.2/summary.json), [outputs completos](../results/cp01.2/raw_results.json), [pares CSV](../results/cp01.2/paired_comparison.csv) e [relatório descritivo](../results/cp01.2/report.md).
+Dados preservados: [resumo JSON](../../results/cp01.2/summary.json), [outputs completos](../../results/cp01.2/raw_results.json), [pares CSV](../../results/cp01.2/paired_comparison.csv) e [relatório descritivo](../../results/cp01.2/report.md).
 
 ### Seleção explícita CP02.1
 
@@ -46,7 +48,7 @@ Na fixture multiworkload, o contexto global é Open. Selecionar backend retorna 
 
 **Testes aprovados:** 26 novos de seleção/agregação, em 0,150 s; 21 existentes do executor, em 0,127 s na verificação final. Total: **47 testes distintos**, além da suíte de 16 cenários. O teste de preservação da camada nova compara resultados integrais em 26 combinações históricas de entrada: 16 sem snapshot e dez com snapshot; não são 26 cenários independentes.
 
-Evidências: [testes novos](../results/cp02.1-validation/new-tests.txt), [testes existentes](../results/cp02.1-validation/existing-tests-after.txt), [suíte histórica](../results/cp02.1-validation/historical-after.txt). Tempos são observações locais, não benchmark estatístico.
+Evidências: [testes novos](../../results/cp02.1-validation/new-tests.txt), [testes existentes](../../results/cp02.1-validation/existing-tests-after.txt), [suíte histórica](../../results/cp02.1-validation/historical-after.txt). Tempos são observações locais, não benchmark estatístico.
 
 ## 3. Roteiro para demonstração em reunião
 
@@ -66,7 +68,7 @@ offline_python() {
 ### 3.1. Mostrar os 16 resultados históricos
 
 ```sh
-offline_python run_scenarios.py
+offline_python scripts/run_scenarios.py
 ```
 
 Resultado verificado: 16/16. O script histórico imprime a palavra “Acurácia”; durante a apresentação, explicar que significa concordância com rótulos sintéticos históricos, sem validação independente.
@@ -74,11 +76,11 @@ Resultado verificado: 16/16. O script histórico imprime a palavra “Acurácia�
 ### 3.2. Mostrar o contexto global e selecionar o backend
 
 ```sh
-offline_python exposure_analyzer_v2.py \
+offline_python src/exposure_analyzer_v2.py \
   --manifests tests/fixtures/cp02.1/multi-workload.yaml \
   --mode system --format text
 
-offline_python exposure_analyzer_v2.py \
+offline_python src/exposure_analyzer_v2.py \
   --manifests tests/fixtures/cp02.1/multi-workload.yaml \
   --mode target --target Deployment/demo/backend --format text
 ```
@@ -88,11 +90,11 @@ Resultados verificados: global Open; backend Controlled com global Open disponí
 ### 3.3. Mostrar seleção Small e snapshot opcional
 
 ```sh
-offline_python exposure_analyzer_v2.py \
+offline_python src/exposure_analyzer_v2.py \
   --manifests tests/fixtures/cp02.1/multi-workload.yaml \
   --mode target --target Deployment/demo/worker --format json
 
-offline_python exposure_analyzer_v2.py \
+offline_python src/exposure_analyzer_v2.py \
   --manifests tests/fixtures/cp02.1/multi-workload.yaml \
   --cloud tests/fixtures/cp02.1/cloud.json \
   --mode target --target Deployment/demo/frontend --format json
@@ -103,7 +105,7 @@ Worker retorna Small segundo o legado, condição coberta pelos testes; isso nã
 ### 3.4. Mostrar erro sem classificação substituta
 
 ```sh
-offline_python exposure_analyzer_v2.py \
+offline_python src/exposure_analyzer_v2.py \
   --manifests tests/fixtures/cp02.1/multi-workload.yaml \
   --mode target --target Deployment/demo/missing --format json
 ```
@@ -115,10 +117,10 @@ Resultado verificado: `status=error`, `selected_exposure=null`, `global_exposure
 Para mostrar a rodada já realizada, abrir os arquivos de `results/cp01.2/`. Para uma nova execução, escolher **outro diretório ainda inexistente**:
 
 ```sh
-offline_python run_experiments.py --output results/cp01.2-meeting-01
+offline_python src/run_experiments.py --output results/cp01.2-meeting-01
 ```
 
-Esse comando é um roteiro para a reunião, **não foi executado no encerramento**. Cria arquivos locais de uma nova rodada. Se o diretório já existir, o executor recusa a gravação; escolher outro nome, sem apagar a referência anterior. Não executar o gerador `build_scenarios.py`.
+Esse comando é um roteiro para a reunião, **não foi executado no encerramento**. Cria arquivos locais de uma nova rodada. Se o diretório já existir, o executor recusa a gravação; escolher outro nome, sem apagar a referência anterior. Não executar o gerador `scripts/build_scenarios.py`.
 
 Testes reproduzíveis:
 
@@ -157,7 +159,7 @@ As propostas do CP01.1 continuam sujeitas a alinhamento científico. A autoriza�
 
 Para reproduzir B0 fielmente, solicitar código/commit usado no artigo, dependências, comando mínimo, regras exatas de exposição, versões CVSS aceitas e tratamento de dados ausentes/conflitantes. Confirmar a árvore/versão SSVC, contratos de entrada/saída, identidade de serviço/componente, diferença entre inferência inicial e revisão pelo operador e persistência/reuso.
 
-Também esclarecer licença/permissões de execução, adaptação e eventual distribuição. Como informações desejáveis: testes internos, demonstradores reutilizáveis e possibilidades de integração. Confirmar denominadores das matrizes do artigo, cuja soma das células difere do total textual informado, conforme [fundamentação CP01.1](cp01-ssvc-foundation.md#22-avaliação-apresentada-e-alcance-dos-resultados).
+Também esclarecer licença/permissões de execução, adaptação e eventual distribuição. Como informações desejáveis: testes internos, demonstradores reutilizáveis e possibilidades de integração. Confirmar denominadores das matrizes do artigo, cuja soma das células difere do total textual informado, conforme [fundamentação CP01.1](../foundation/cp01-ssvc-foundation.md#22-avaliação-apresentada-e-alcance-dos-resultados).
 
 Nenhuma mensagem foi enviada a Jan. Sua colaboração é indispensável para afirmar fidelidade de B0, mas não bloqueia trabalho B1/B2 devidamente autorizado. Não implementar aproximação e chamá-la de Copilot original.
 
@@ -180,16 +182,16 @@ Os quatro commits CP01 constam no histórico, realizados pelo usuário antes do 
 
 Novos arquivos CP02.1, ainda não rastreados:
 
-- `exposure_analyzer_v2.py`.
+- `src/exposure_analyzer_v2.py`.
 - `tests/test_exposure_analyzer_v2.py`.
 - `tests/fixtures/cp02.1/multi-workload.yaml` e `cloud.json`.
-- `docs/cp02.1-unit-of-analysis.md`.
+- `docs/checkpoints/cp02.1-unit-of-analysis.md`.
 - `results/cp02.1-validation/`: logs, quatro exemplos JSON e hashes antes/depois.
-- Este resumo `docs/session-summary-2026-11-26.md`.
+- Este resumo `docs/sessions/session-summary-2026-11-26.md`.
 
-Os PDFs `SSVC_Copilot.pdf` e `SSVC_Copilot_SBSeg2026.pdf` permanecem não rastreados e não devem ser incluídos nos commits. `.venv/` não deve ser versionado.
+Os PDFs locais em `references/` permanecem não rastreados e não devem ser incluídos nos commits. `.venv/` não deve ser versionado.
 
-Os **68 arquivos preexistentes** da verificação CP02.1 mantiveram seus hashes, incluindo código, testes históricos, cenários, resultados CP01.2, documentos e PDFs. Evidência: [antes](../results/cp02.1-validation/protected-before.sha256) e [depois](../results/cp02.1-validation/protected-after.sha256).
+Os **68 arquivos preexistentes** da verificação CP02.1 mantiveram seus hashes, incluindo código, testes históricos, cenários, resultados CP01.2, documentos e PDFs. Evidência: [antes](../../results/cp02.1-validation/protected-before.sha256) e [depois](../../results/cp02.1-validation/protected-after.sha256).
 
 No encerramento, o único arquivo criado adicionalmente foi este resumo. Código e fixtures não foram alterados desde os testes aprovados; não foi necessária repetição de testes para uma adição exclusivamente documental.
 
@@ -199,6 +201,6 @@ Nenhuma configuração, credencial, profile ou contexto corporativo foi consulta
 
 Todos os dados e temporários experimentais permaneceram no projeto. As restrições sobre o ambiente profissional são permanentes; autorização futura da conta pessoal não as modifica. A conta acadêmica pessoal continua não autorizada.
 
-Relatório técnico completo de CP02.1: [unidade de análise e seleção](cp02.1-unit-of-analysis.md). Relatório experimental: [CP01.2](cp01.2-execution.md). Fundamentação e planos: [CP01.1](cp01-ssvc-foundation.md).
+Relatório técnico completo de CP02.1: [unidade de análise e seleção](../checkpoints/cp02.1-unit-of-analysis.md). Relatório experimental: [CP01.2](../checkpoints/cp01.2-execution.md). Fundamentação e planos: [CP01.1](../foundation/cp01-ssvc-foundation.md).
 
 **Sessão encerrada após a entrega deste resumo. Nenhum novo checkpoint autorizado ou iniciado.**

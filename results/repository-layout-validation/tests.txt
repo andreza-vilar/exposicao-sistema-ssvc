@@ -1,0 +1,52 @@
+test_all_historical_results_equal_in_b1_and_b2 (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_analyze_called_once_with_all_resources_and_no_mutation (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_cli_json_and_text (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_cli_main_module_nonzero_json_error (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_determinism_and_json_versioned_contract (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_duplicate_target_is_ambiguous_before_legacy_analysis (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_duplicates_in_system_or_other_target_reject_whole_input (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_empty_directory (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_error_from_legacy_never_uses_global_as_selected_fallback (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_full_identifier_required (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_invalid_files_or_snapshot_return_structured_errors (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_invalid_objects_and_missing_workload_identity (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_manifest_directory_and_kind_list (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_mode_validation (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_multiple_workloads_and_explicit_system_strategy (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_namespace_omitted_uses_default (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_no_supported_workloads (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_rejects_external_and_symlink_paths_before_loading (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_same_name_different_kinds (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_same_name_different_namespaces (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_select_controlled_does_not_inherit_open_global (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_select_open (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_select_small_keeps_evidence_and_notes (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_single_workload (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_snapshot_changes_only_legacy_inputs_and_confidence (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_unknown_target_is_error_with_global_context_not_substitution (test_exposure_analyzer_v2.UnitSelectionTests) ... ok
+test_bad_label_does_not_hide_classification_but_excludes_pair (test_run_experiments.ExperimentTests) ... ok
+test_changed_file_during_parse_rejected (test_run_experiments.ExperimentTests) ... ok
+test_classification_exception_and_cli_nonzero (test_run_experiments.ExperimentTests) ... ok
+test_discovery_sorted_and_ignores_files (test_run_experiments.ExperimentTests) ... ok
+test_empty_discovery_nonzero_without_export (test_run_experiments.ExperimentTests) ... ok
+test_export_roundtrip_preserves_complete_output_and_csv (test_run_experiments.ExperimentTests) ... ok
+test_invalid_cloud_shapes_rejected (test_run_experiments.ExperimentTests) ... ok
+test_invalid_json_is_error_not_missing (test_run_experiments.ExperimentTests) ... ok
+test_invalid_yaml_records_both_errors (test_run_experiments.ExperimentTests) ... ok
+test_launcher_guard_denies_simulated_network_and_process_events (test_run_experiments.ExperimentTests) ... ok
+test_main_module_signals_nonzero_system_exit (test_run_experiments.ExperimentTests) ... ok
+test_metrics_use_same_paired_denominator (test_run_experiments.ExperimentTests) ... ok
+test_missing_manifest_and_label_retained (test_run_experiments.ExperimentTests) ... ok
+test_missing_snapshot_not_run_or_paired (test_run_experiments.ExperimentTests) ... ok
+test_no_silent_overwrite (test_run_experiments.ExperimentTests) ... ok
+test_no_workload_is_execution_error_not_category (test_run_experiments.ExperimentTests) ... ok
+test_parser_objects_cannot_leak_mutation_between_modes (test_run_experiments.ExperimentTests) ... ok
+test_paths_outside_repository_rejected_before_read (test_run_experiments.ExperimentTests) ... ok
+test_real_corpus_inventory_and_reproducible_categorical_results (test_run_experiments.ExperimentTests) ... ok
+test_transition_increase_decrease_and_confidence_only (test_run_experiments.ExperimentTests) ... ok
+test_valid_snapshot_same_manifest_separate_cloud (test_run_experiments.ExperimentTests) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.281s
+
+OK

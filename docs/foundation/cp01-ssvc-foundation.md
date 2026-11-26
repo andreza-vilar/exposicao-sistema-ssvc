@@ -1,5 +1,7 @@
 # CP01.1 — Fundamentação científica de System Exposure
 
+> Nota de organização: caminhos e links foram atualizados após o checkpoint. Resultados, hashes e estados de Git descritos abaixo são registros históricos da execução original. Veja o README para a estrutura atual.
+
 Data de consulta e execução: 26/11/2026 (America/Fortaleza). Estado: análise concluída; propostas ainda sujeitas à discussão com Andrey. Nenhuma mudança de implementação autorizada por este documento.
 
 ## 1. Método, fontes e limites
@@ -126,8 +128,8 @@ Todos os links abaixo foram consultados em **26/11/2026**. As páginas vivas nã
 
 | ID | Referência / versão / seção | URL e condição |
 |---|---|---|
-| P1 | Filho, Albuquerque, Falcão e Brito. SSVC Copilot; 16 páginas; §§2.4, 4–7, especialmente §5.2 | [PDF local](../SSVC_Copilot.pdf); leitura integral |
-| P2 | Mesmos autores. Apresentação SBSeg 2026; 25 slides | [PDF local](../SSVC_Copilot_SBSeg2026.pdf); leitura integral |
+| P1 | Filho, Albuquerque, Falcão e Brito. SSVC Copilot; 16 páginas; §§2.4, 4–7, especialmente §5.2 | [PDF local](../../references/SSVC_Copilot.pdf); leitura integral |
+| P2 | Mesmos autores. Apresentação SBSeg 2026; 25 slides | [PDF local](../../references/SSVC_Copilot_SBSeg2026.pdf); leitura integral |
 | S1 | CERT/CC. System Exposure; `ssvc:EXP:1.0.1`; definições, default, prior versions | https://certcc.github.io/SSVC/reference/decision_points/system_exposure/ |
 | S2 | CERT/CC. Gathering Information About System Exposure; contexto e Small versus Controlled | https://certcc.github.io/SSVC/howto/gathering_info/system_exposure/ |
 | S3 | CERT/CC. Deployer Decision Model; Units of Work, Decision Points, Outcomes | https://certcc.github.io/SSVC/howto/deployer_tree/ ; link indicado na p. 4 do artigo |
@@ -151,7 +153,7 @@ Execução local sem instalação, sem regenerar cenários:
 
 ```sh
 .venv/bin/python -c 'import sys,yaml; print(sys.version); print(yaml.__version__)'
-/usr/bin/time -p env PYTHONDONTWRITEBYTECODE=1 .venv/bin/python run_scenarios.py
+/usr/bin/time -p env PYTHONDONTWRITEBYTECODE=1 .venv/bin/python scripts/run_scenarios.py
 ```
 
-**Observado:** Python 3.9.6, PyYAML 6.0.3; 16/16 concordâncias; small=1, controlled=9, open=6; zero subestimativas/superestimativas. Tempo real 0,06 s, user 0,04 s, sys 0,00 s, código de saída 0. Os rótulos pertencem ao gerador atual (`build_scenarios.py:60–84`); a comparação é de `system_exposure` (`run_scenarios.py:10–24`). É teste de consistência interna, não validação científica independente.
+**Observado:** Python 3.9.6, PyYAML 6.0.3; 16/16 concordâncias; small=1, controlled=9, open=6; zero subestimativas/superestimativas. Tempo real 0,06 s, user 0,04 s, sys 0,00 s, código de saída 0. Os rótulos pertencem ao gerador atual (`scripts/build_scenarios.py:60–84`); a comparação é de `system_exposure` (`scripts/run_scenarios.py:10–24`). É teste de consistência interna, não validação científica independente.

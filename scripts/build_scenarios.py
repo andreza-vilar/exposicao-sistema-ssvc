@@ -4,7 +4,7 @@ Rótulos definidos pela construção do cenário (autoria do desenvolvedor)."""
 import json, os, shutil
 from pathlib import Path
 
-ROOT = Path(__file__).parent / "scenarios"
+ROOT = Path(__file__).resolve().parents[1] / "scenarios"
 if ROOT.exists():
     shutil.rmtree(ROOT)
 

@@ -1,10 +1,12 @@
 # CP01.1 — Propostas de decisões científicas e arquiteturais
 
+> Nota de organização: caminhos e links foram atualizados após o checkpoint. Resultados, hashes e estados de Git descritos abaixo são registros históricos da execução original. Veja o README para a estrutura atual.
+
 Data: 26/11/2026. **Todas as decisões abaixo são propostas para discussão com Andrey, não aprovações nem funcionalidades implementadas.** Base científica: [fundamentação](cp01-ssvc-foundation.md); revisão detalhada: [20 regras](cp01-rule-traceability.md).
 
 ## 1. Estado atual e objetivo da revisão
 
-**Fato:** a análise é por Deployment/StatefulSet/DaemonSet/ReplicaSet/Pod (`exposure_analyzer.py:223–241`). Saída por workload contém exposição, confiança, entradas e notas (`272–275`). O máximo global é usado como exposição do sistema (`274`). Não existe associação explícita CVE→componente nessa interface.
+**Fato:** a análise é por Deployment/StatefulSet/DaemonSet/ReplicaSet/Pod (`src/exposure_analyzer.py:223–241`). Saída por workload contém exposição, confiança, entradas e notas (`272–275`). O máximo global é usado como exposição do sistema (`274`). Não existe associação explícita CVE→componente nessa interface.
 
 **Proposta D01:** preservar parser, avaliadores de entradas, CLI offline e funções Python; evoluir evidências e regras incrementalmente. Não adotar agentes LLM, motor genérico de políticas, serviços web ou refatoração ampla para resolver as lacunas deste checkpoint.
 

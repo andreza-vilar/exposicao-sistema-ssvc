@@ -58,7 +58,7 @@ def main():
         raise SystemExit('Script deve ser arquivo dentro do projeto')
     # Importar somente o pacote já instalado no venv, sem site/.pth/usercustomize.
     packages = ROOT / '.venv' / 'lib' / ('python%d.%d' % sys.version_info[:2]) / 'site-packages'
-    sys.path[:0] = [str(ROOT), str(packages)]
+    sys.path[:0] = [str(ROOT / "src"), str(ROOT), str(packages)]
     os.chdir(ROOT)
     sys.addaudithook(audit)
     import runpy

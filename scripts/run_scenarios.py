@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from exposure_analyzer import Cloud, analyze, load_manifests, LEVELS, RANK
 
-root = Path(__file__).parent / "scenarios"
+root = Path(__file__).resolve().parents[1] / "scenarios"
 conf = {e: {p: 0 for p in LEVELS} for e in LEVELS}
 rows, under, over = [], 0, 0
 for d in sorted(root.iterdir()):

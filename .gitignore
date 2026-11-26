@@ -4,3 +4,8 @@ __pycache__/
 .DS_Store
 .env
 .env.*
+
+# Referências científicas locais: não enviar ao repositório.
+/references/*.pdf
+/SSVC_Copilot.pdf
+/SSVC_Copilot_SBSeg2026.pdf

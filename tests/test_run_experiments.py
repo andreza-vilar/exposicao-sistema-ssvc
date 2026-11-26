@@ -279,12 +279,12 @@ class ExperimentTests(unittest.TestCase):
     def test_main_module_signals_nonzero_system_exit(self):
         import runpy
         self.scenario(cloud=[])
-        with patch.object(sys, 'argv', [str(exp.ROOT / 'run_experiments.py'),
+        with patch.object(sys, 'argv', [str(exp.ROOT / 'src' / 'run_experiments.py'),
                                       '--scenarios', str(self.scenarios),
                                       '--output', str(self.root / 'export')]), \
                 redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()), \
                 self.assertRaises(SystemExit) as raised:
-            runpy.run_path(str(exp.ROOT / 'run_experiments.py'), run_name='__main__')
+            runpy.run_path(str(exp.ROOT / 'src' / 'run_experiments.py'), run_name='__main__')
         self.assertEqual(raised.exception.code, 1)
 
 

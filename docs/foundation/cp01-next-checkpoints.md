@@ -1,5 +1,7 @@
 # CP01.1 — Plano priorizado e encerramento
 
+> Nota de organização: caminhos e links foram atualizados após o checkpoint. Resultados, hashes e estados de Git descritos abaixo são registros históricos da execução original. Veja o README para a estrutura atual.
+
 Data: 26/11/2026. **Plano proposto; CP01.2 não iniciado.** Este checkpoint criou apenas os cinco documentos solicitados. Não alterou código, fixtures, rótulos, PDFs ou configurações.
 
 ## 1. Prioridades e sequência
@@ -8,17 +10,17 @@ P0 = validade científica; P1 = escopo mínimo; P2 = desejável. Complexidade re
 
 | ID / prioridade | Problema e justificativa | Arquivos potencialmente afetados no futuro | Resultado esperado | Dependências | Critérios de aceitação | Complexidade |
 |---|---|---|---|---|---|---|
-| P0-01 | Versão e interpretação sem pin; regras não rastreáveis | `docs/cp01-*`, futuro catálogo documental de regras | Base semântica estável | Decisão de Andrey; confirmação histórica de Jan apenas para B0 | Versão de EXP, revisão da fonte, fronteira Small/Controlled e pressupostos registrados; regra própria identificada como interpretação | Baixa/média |
-| P0-02 | Workload/global confundidos com componente afetado | `exposure_analyzer.py`, documentação, futuros testes separados | Unidade de exposição e agregação pertinentes | P0-01 e definição do contrato | Identificação explícita do alvo; exemplo multiworkload preserva diferenças; máximo global não atribuído a todo CVE | Média |
-| P0-03 | Ausência de dados gera níveis reduzidos definitivos e high | `exposure_analyzer.py:62–110,136–156,267–275`, formato de saída | Suficiência, lacunas e fallback separados | P0-01; contrato aprovado | SG ausente/nó incompleto não prova restrição; inconclusivo não vira categoria oficial; fallback Open distinguível em JSON | Média |
-| P0-04 | Small automático por netpol | `exposure_analyzer.py:200–219,267–271`, novos testes em corpus separado | Critério Small justificável | P0-01/P0-03 | Remover implicação automática no modelo aprovado; cenário histórico preservado; casos sem base retornam lacuna, sem novo rótulo inventado | Média |
+| P0-01 | Versão e interpretação sem pin; regras não rastreáveis | `docs/foundation/cp01-*`, futuro catálogo documental de regras | Base semântica estável | Decisão de Andrey; confirmação histórica de Jan apenas para B0 | Versão de EXP, revisão da fonte, fronteira Small/Controlled e pressupostos registrados; regra própria identificada como interpretação | Baixa/média |
+| P0-02 | Workload/global confundidos com componente afetado | `src/exposure_analyzer.py`, documentação, futuros testes separados | Unidade de exposição e agregação pertinentes | P0-01 e definição do contrato | Identificação explícita do alvo; exemplo multiworkload preserva diferenças; máximo global não atribuído a todo CVE | Média |
+| P0-03 | Ausência de dados gera níveis reduzidos definitivos e high | `src/exposure_analyzer.py:62–110,136–156,267–275`, formato de saída | Suficiência, lacunas e fallback separados | P0-01; contrato aprovado | SG ausente/nó incompleto não prova restrição; inconclusivo não vira categoria oficial; fallback Open distinguível em JSON | Média |
+| P0-04 | Small automático por netpol | `src/exposure_analyzer.py:200–219,267–271`, novos testes em corpus separado | Critério Small justificável | P0-01/P0-03 | Remover implicação automática no modelo aprovado; cenário histórico preservado; casos sem base retornam lacuna, sem novo rótulo inventado | Média |
 | P0-05 | Oráculo e regras com mesma construção | Documentação metodológica e futuro corpus de avaliação separado | Protocolo anterior ao ajuste e observação independente | Alinhamento de Andrey | Critérios e denominadores congelados; famílias de desenvolvimento/avaliação separadas; desvios documentados | Média |
 | P0-06 | Baseline original não disponível | Futuro adaptador B0 e documentação, sem alterar motor B1/B2 por essa dependência | Comparação fiel ou pendência declarada | Jan: código/versão/regras/licença | B0 executável e confirmado; se ausente, nenhuma aproximação chamada de original e conclusões limitadas a B1/B2 | Baixa a média, dependência externa |
-| P1-01 | Correlação DNS/controlador/nós simplificada | `exposure_analyzer.py:52–85,128–156,173–189,240–255` | Caminhos do alvo verificáveis | P0-02/P0-03 | Ambiguidade explícita; múltiplos controladores não selecionados por primeiro resultado; nós e portas pertinentes identificados | Média/alta |
-| P1-02 | Política/SG parcialmente interpretados aparentam cobertura completa | `exposure_analyzer.py:74–85,200–219`, documentação de capacidades | Subconjunto suportado fiel e lacunas fora dele | P0-03/P0-04 | Seletores/portas/protocolos suportados testados; semântica não suportada sinalizada; não implementar toda rede AWS para satisfazer escopo | Média/alta |
-| P1-03 | Não há execução pareada nem métricas de abstinência | `run_scenarios.py` ou executor experimental novo, futuras saídas estruturadas | B1/B2 comparáveis e exportáveis | P0-03/P0-05 | Mesmo manifesto/hash; resultados brutos preservados; cobertura, direção e fallback com denominadores explícitos | Média |
-| P1-04 | Evidências são strings sem ponteiro | `exposure_analyzer.py:104–110,272–301` e catálogo de regras | Rastreabilidade de campo e derivação | P0-02/P0-03 | Conclusão reconstruível por alvo, regra, entrada, campo, instante e faltas | Média |
-| P1-05 | Regressão verifica só agregado e não sinaliza divergência no exit code | `run_scenarios.py`, futuros testes locais | Verificação significativa de comportamento | Modelo aprovado e autorização de implementação | Casos negativos detectam divergência; evidências/estado/individuais verificados; fixtures originais preservadas ou migração separada aprovada | Baixa/média |
+| P1-01 | Correlação DNS/controlador/nós simplificada | `src/exposure_analyzer.py:52–85,128–156,173–189,240–255` | Caminhos do alvo verificáveis | P0-02/P0-03 | Ambiguidade explícita; múltiplos controladores não selecionados por primeiro resultado; nós e portas pertinentes identificados | Média/alta |
+| P1-02 | Política/SG parcialmente interpretados aparentam cobertura completa | `src/exposure_analyzer.py:74–85,200–219`, documentação de capacidades | Subconjunto suportado fiel e lacunas fora dele | P0-03/P0-04 | Seletores/portas/protocolos suportados testados; semântica não suportada sinalizada; não implementar toda rede AWS para satisfazer escopo | Média/alta |
+| P1-03 | Não há execução pareada nem métricas de abstinência | `scripts/run_scenarios.py` ou executor experimental novo, futuras saídas estruturadas | B1/B2 comparáveis e exportáveis | P0-03/P0-05 | Mesmo manifesto/hash; resultados brutos preservados; cobertura, direção e fallback com denominadores explícitos | Média |
+| P1-04 | Evidências são strings sem ponteiro | `src/exposure_analyzer.py:104–110,272–301` e catálogo de regras | Rastreabilidade de campo e derivação | P0-02/P0-03 | Conclusão reconstruível por alvo, regra, entrada, campo, instante e faltas | Média |
+| P1-05 | Regressão verifica só agregado e não sinaliza divergência no exit code | `scripts/run_scenarios.py`, futuros testes locais | Verificação significativa de comportamento | Modelo aprovado e autorização de implementação | Casos negativos detectam divergência; evidências/estado/individuais verificados; fixtures originais preservadas ou migração separada aprovada | Baixa/média |
 | P1-06 | Validação operacional ainda inexistente | Plano documental futuro, corpus/observações futuros | Evidências empíricas controladas | Plano completo, custo e autorização explícita de conta pessoal | Isolamento demonstrado sem consultar configs profissionais; controles positivos/negativos; recursos removidos e resíduos verificados | Alta, autorizada separadamente |
 | P2-01 | Integração não formalizada | Futuro adaptador e schema documental | Contrato para possível integração Copilot | Jan e estabilização B1/B2 | Exemplo de entrada/saída reproduzível, sem integração completa obrigatória | Média |
 | P2-02 | Ambiente e uso pouco documentados | README e documentação futura | Execução offline simples | Modelo estável | Versão Python definida; comando de suíte existente separado do gerador destrutivo | Baixa |
@@ -79,11 +81,11 @@ Estado inicial verificado: branch `main`, HEAD `b62d233`, arquivos rastreados se
 
 Arquivos documentais novos:
 
-- `docs/cp01-ssvc-foundation.md`
-- `docs/cp01-rule-traceability.md`
-- `docs/cp01-design-decisions.md`
-- `docs/cp01-experimental-methodology.md`
-- `docs/cp01-next-checkpoints.md`
+- `docs/foundation/cp01-ssvc-foundation.md`
+- `docs/foundation/cp01-rule-traceability.md`
+- `docs/foundation/cp01-design-decisions.md`
+- `docs/foundation/cp01-experimental-methodology.md`
+- `docs/foundation/cp01-next-checkpoints.md`
 
 Estado final esperado e verificado no encerramento: apenas os cinco documentos novos e os dois PDFs previamente não rastreados; nenhum arquivo rastreado modificado. PDFs continuam fora do índice. A suíte existente reproduziu 16/16 com Python 3.9.6 e PyYAML 6.0.3, tempo real 0,06 s; não houve instalação nem execução do gerador. Extração/renderização de leitura usou PDFKit local, com artefatos temporários fora do repositório.
 

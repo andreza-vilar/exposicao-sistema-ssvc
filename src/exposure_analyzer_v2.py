@@ -15,7 +15,7 @@ import sys
 import exposure_analyzer as legacy
 from run_experiments import local_path, validate_cloud
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_VERSION = '1.0.0'
 SUPPORTED_KINDS = ('Deployment', 'StatefulSet', 'DaemonSet', 'ReplicaSet', 'Pod')
 LIMITATIONS = [
@@ -37,7 +37,7 @@ class InputError(ValueError):
 def classifier_identity():
     return {
         'id': 'legacy-exposure-analyzer',
-        'sha256': hashlib.sha256((ROOT / 'exposure_analyzer.py').read_bytes()).hexdigest(),
+        'sha256': hashlib.sha256((ROOT / 'src' / 'exposure_analyzer.py').read_bytes()).hexdigest(),
         'adapter_id': 'cp02.1-workload-selection',
         'adapter_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     }
