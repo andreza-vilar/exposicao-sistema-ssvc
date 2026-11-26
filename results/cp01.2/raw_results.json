@@ -1,0 +1,1530 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+    "executor_sha256": "75392fd963847c6c91b3c866440ab6d49951b04da9b2e2289670e847a00dd751",
+    "python_version": "3.9.6",
+    "pyyaml_version": "6.0.3",
+    "created_at_utc": "2026-11-26T05:05:34.997875+00:00",
+    "scenarios_root": "scenarios",
+    "snapshot_origin": "synthetic",
+    "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+    "manifest_annotations_available_in_b1": true,
+    "unit_of_analysis": "legacy_workload_and_system_maximum"
+  },
+  "executions": [
+    {
+      "scenario_id": "01-clusterip-netpol-restritiva",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/01-clusterip-netpol-restritiva/manifests.yaml",
+      "manifest_sha256": "fcf65dd5fbe0f7fb185157eb0d6b6f218e8e4413d79b95e6075ead1bb1767670",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "small",
+      "historical_label_sha256": "ab9fd41681dcccb4709cb0e90a8313d90c5910fca2d061d04d35386f880dde85",
+      "classification": "small",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "small",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "small",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Cluster/demo/app",
+                "level": "small",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] sem Service externo (LoadBalancer/NodePort) nem Ingress",
+                  "[manifesto] NetworkPolicy de entrada: restrictive ['np']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 7.470899999999225e-05,
+      "elapsed_seconds": 0.0027192080000000007
+    },
+    {
+      "scenario_id": "01-clusterip-netpol-restritiva",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/01-clusterip-netpol-restritiva/manifests.yaml",
+      "manifest_sha256": "fcf65dd5fbe0f7fb185157eb0d6b6f218e8e4413d79b95e6075ead1bb1767670",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "small",
+      "historical_label_sha256": "ab9fd41681dcccb4709cb0e90a8313d90c5910fca2d061d04d35386f880dde85",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.00264362600000001
+    },
+    {
+      "scenario_id": "02-clusterip-sem-netpol",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/02-clusterip-sem-netpol/manifests.yaml",
+      "manifest_sha256": "b60ac7e2d4bb70d2d14073e580764a15a31908246b6ae8a82f3c4c13d49a2a4c",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Cluster/demo/app",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] sem Service externo (LoadBalancer/NodePort) nem Ingress",
+                  "[manifesto] NetworkPolicy de entrada: none"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.724999999999868e-05,
+      "elapsed_seconds": 0.0016525829999999991
+    },
+    {
+      "scenario_id": "02-clusterip-sem-netpol",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/02-clusterip-sem-netpol/manifests.yaml",
+      "manifest_sha256": "b60ac7e2d4bb70d2d14073e580764a15a31908246b6ae8a82f3c4c13d49a2a4c",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.0016044989999999953
+    },
+    {
+      "scenario_id": "03-clusterip-netpol-permissiva",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/03-clusterip-netpol-permissiva/manifests.yaml",
+      "manifest_sha256": "94eab3e45f61203c14d24d172622a64a68e6f479ee4724eecda241a36a609dc1",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Cluster/demo/app",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] sem Service externo (LoadBalancer/NodePort) nem Ingress",
+                  "[manifesto] NetworkPolicy de entrada: permissive ['np']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 6.0083999999988036e-05,
+      "elapsed_seconds": 0.002021123999999999
+    },
+    {
+      "scenario_id": "03-clusterip-netpol-permissiva",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/03-clusterip-netpol-permissiva/manifests.yaml",
+      "manifest_sha256": "94eab3e45f61203c14d24d172622a64a68e6f479ee4724eecda241a36a609dc1",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.001960291000000003
+    },
+    {
+      "scenario_id": "04-lb-aberto-confirmado-nuvem",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/04-lb-aberto-confirmado-nuvem/manifests.yaml",
+      "manifest_sha256": "a018cae3b366e000057dade7508755d60641714ef85776cac52e8f452f298d94",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 6.016699999999986e-05,
+      "elapsed_seconds": 0.0019843749999999966
+    },
+    {
+      "scenario_id": "04-lb-aberto-confirmado-nuvem",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/04-lb-aberto-confirmado-nuvem/manifests.yaml",
+      "manifest_sha256": "a018cae3b366e000057dade7508755d60641714ef85776cac52e8f452f298d94",
+      "snapshot_path": "scenarios/04-lb-aberto-confirmado-nuvem/cloud.json",
+      "snapshot_sha256": "96ff8639eca54f4eb209a15fac7a2df0bd12f79c3eb07fb64b5c63f5d394dc80",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[nuvem] LB a: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['0.0.0.0/0']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.591700000000255e-05,
+      "elapsed_seconds": 0.002001166999999998
+    },
+    {
+      "scenario_id": "05-lb-interno-confirmado-nuvem",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/05-lb-interno-confirmado-nuvem/manifests.yaml",
+      "manifest_sha256": "24a363b9b1f4fad72196784943b0ab391cd9a73ae956a6ac921313df4ac98544",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] anotação/controlador indica LB interno",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 6.654200000000277e-05,
+      "elapsed_seconds": 0.0022082920000000145
+    },
+    {
+      "scenario_id": "05-lb-interno-confirmado-nuvem",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/05-lb-interno-confirmado-nuvem/manifests.yaml",
+      "manifest_sha256": "24a363b9b1f4fad72196784943b0ab391cd9a73ae956a6ac921313df4ac98544",
+      "snapshot_path": "scenarios/05-lb-interno-confirmado-nuvem/cloud.json",
+      "snapshot_sha256": "0e2dd0533161160403633182c0874602c3d7e05281d52acd17d63f53f0e2fdee",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] anotação/controlador indica LB interno",
+                  "[nuvem] LB b: Scheme=internal",
+                  "[nuvem] LB interno: sem endereço público"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.000000000000837e-05,
+      "elapsed_seconds": 0.0022112510000000113
+    },
+    {
+      "scenario_id": "06-lb-allowlist-confirmada",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/06-lb-allowlist-confirmada/manifests.yaml",
+      "manifest_sha256": "c6f92dd4bb8e9f9a34a40e6fd878d98a78b8dd4b2831c745f6c2eeeebe3ae5f3",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] loadBalancerSourceRanges=['198.51.100.0/24']",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 6.233299999999775e-05,
+      "elapsed_seconds": 0.002620290999999997
+    },
+    {
+      "scenario_id": "06-lb-allowlist-confirmada",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/06-lb-allowlist-confirmada/manifests.yaml",
+      "manifest_sha256": "c6f92dd4bb8e9f9a34a40e6fd878d98a78b8dd4b2831c745f6c2eeeebe3ae5f3",
+      "snapshot_path": "scenarios/06-lb-allowlist-confirmada/cloud.json",
+      "snapshot_sha256": "fe16f7d13c8af0aaa9a32bf6df488a875cf94e2de6a260e6d30e14efb4deedee",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] loadBalancerSourceRanges=['198.51.100.0/24']",
+                  "[nuvem] LB c: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['198.51.100.0/24']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.362500000000159e-05,
+      "elapsed_seconds": 0.0026313329999999996
+    },
+    {
+      "scenario_id": "07-lb-allowlist-no-manifesto-mas-nuvem-aberta",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/07-lb-allowlist-no-manifesto-mas-nuvem-aberta/manifests.yaml",
+      "manifest_sha256": "f09dbf737685d7754b882eb1bc47ae5aa44fad4a155dac550afddf7fe14fef96",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] loadBalancerSourceRanges=['198.51.100.0/24']",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.93750000000004e-05,
+      "elapsed_seconds": 0.0021200830000000087
+    },
+    {
+      "scenario_id": "07-lb-allowlist-no-manifesto-mas-nuvem-aberta",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/07-lb-allowlist-no-manifesto-mas-nuvem-aberta/manifests.yaml",
+      "manifest_sha256": "f09dbf737685d7754b882eb1bc47ae5aa44fad4a155dac550afddf7fe14fef96",
+      "snapshot_path": "scenarios/07-lb-allowlist-no-manifesto-mas-nuvem-aberta/cloud.json",
+      "snapshot_sha256": "e2458240b92eba9f3fb83f3153ae43ecb4fcc258183a14ab5c27492bdf598fd2",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] loadBalancerSourceRanges=['198.51.100.0/24']",
+                  "[divergência] manifesto restringe origens, mas a nuvem permite internet",
+                  "[nuvem] LB d: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['0.0.0.0/0']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.158300000000782e-05,
+      "elapsed_seconds": 0.0021313319999999997
+    },
+    {
+      "scenario_id": "08-lb-sem-fatos-de-nuvem",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/08-lb-sem-fatos-de-nuvem/manifests.yaml",
+      "manifest_sha256": "19047b109d40580cdc4ef693057d468f5080946f35fbf5ea4153719da1f44f91",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.658299999998894e-05,
+      "elapsed_seconds": 0.0017178749999999798
+    },
+    {
+      "scenario_id": "08-lb-sem-fatos-de-nuvem",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/08-lb-sem-fatos-de-nuvem/manifests.yaml",
+      "manifest_sha256": "19047b109d40580cdc4ef693057d468f5080946f35fbf5ea4153719da1f44f91",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.001670707999999993
+    },
+    {
+      "scenario_id": "09-alb-internet-facing",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/09-alb-internet-facing/manifests.yaml",
+      "manifest_sha256": "389ec75d83be1a598c895a26630041f0165753ad60f8f1b8236057c3e6000d40",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "open",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=(padrão) hosts=['app.exemplo.test']",
+                  "[manifesto] TLS configurado (registrado; não altera o nível na versão base)",
+                  "[manifesto] ALB scheme=internet-facing inbound-cidrs=['0.0.0.0/0']",
+                  "[aviso] sem fatos da nuvem para este ALB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 9.108299999999181e-05,
+      "elapsed_seconds": 0.0027075000000000016
+    },
+    {
+      "scenario_id": "09-alb-internet-facing",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/09-alb-internet-facing/manifests.yaml",
+      "manifest_sha256": "389ec75d83be1a598c895a26630041f0165753ad60f8f1b8236057c3e6000d40",
+      "snapshot_path": "scenarios/09-alb-internet-facing/cloud.json",
+      "snapshot_sha256": "d2ca3b03fbe81018b459a0b3a030e482cb0e94df7168ef194dd3535613fcba9a",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "open",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=(padrão) hosts=['app.exemplo.test']",
+                  "[manifesto] TLS configurado (registrado; não altera o nível na versão base)",
+                  "[manifesto] ALB scheme=internet-facing inbound-cidrs=['0.0.0.0/0']",
+                  "[nuvem] LB e: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['0.0.0.0/0']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 7.408400000000204e-05,
+      "elapsed_seconds": 0.002709124999999979
+    },
+    {
+      "scenario_id": "10-alb-interno-padrao",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/10-alb-interno-padrao/manifests.yaml",
+      "manifest_sha256": "a984bce0eb35699ddaf55d3d57d363feab0c5366381d31450f140249fb4e991e",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=alb hosts=['app.exemplo.test']",
+                  "[manifesto] sem TLS",
+                  "[manifesto] ALB scheme=internal inbound-cidrs=['0.0.0.0/0']",
+                  "[aviso] sem fatos da nuvem para este ALB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 7.016700000000986e-05,
+      "elapsed_seconds": 0.002338792000000006
+    },
+    {
+      "scenario_id": "10-alb-interno-padrao",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/10-alb-interno-padrao/manifests.yaml",
+      "manifest_sha256": "a984bce0eb35699ddaf55d3d57d363feab0c5366381d31450f140249fb4e991e",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.00226800000000002
+    },
+    {
+      "scenario_id": "11-nginx-lb-aberto",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/11-nginx-lb-aberto/manifests.yaml",
+      "manifest_sha256": "d6b94449f2c4845c6e1c083cbb735d60c4215285adacbeee87f1f95c75526bff",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "open",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=nginx hosts=['app.exemplo.test']",
+                  "[manifesto] sem TLS",
+                  "[manifesto] exposição herdada do Service do controlador demo/ingress-nginx-controller",
+                  "[manifesto] Service demo/ingress-nginx-controller type=LoadBalancer",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 0.00010441599999999607,
+      "elapsed_seconds": 0.0038275419999999893
+    },
+    {
+      "scenario_id": "11-nginx-lb-aberto",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/11-nginx-lb-aberto/manifests.yaml",
+      "manifest_sha256": "d6b94449f2c4845c6e1c083cbb735d60c4215285adacbeee87f1f95c75526bff",
+      "snapshot_path": "scenarios/11-nginx-lb-aberto/cloud.json",
+      "snapshot_sha256": "e92993792c1c1815a90c43454865467e6238106e27611ae8ceed84ae48df52c8",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "open",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=nginx hosts=['app.exemplo.test']",
+                  "[manifesto] sem TLS",
+                  "[manifesto] exposição herdada do Service do controlador demo/ingress-nginx-controller",
+                  "[manifesto] Service demo/ingress-nginx-controller type=LoadBalancer",
+                  "[nuvem] LB ngx: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['0.0.0.0/0']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 8.583300000000738e-05,
+      "elapsed_seconds": 0.0038282510000000047
+    },
+    {
+      "scenario_id": "12-nginx-lb-aberto-com-allowlist",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/12-nginx-lb-aberto-com-allowlist/manifests.yaml",
+      "manifest_sha256": "e0ea958154b12ce80817d4e78646de396a03358df3cb41a64a5135d8ea86f881",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=nginx hosts=['app.exemplo.test']",
+                  "[manifesto] sem TLS",
+                  "[manifesto] exposição herdada do Service do controlador demo/ingress-nginx-controller",
+                  "[manifesto] Service demo/ingress-nginx-controller type=LoadBalancer",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto",
+                  "[manifesto] allowlist de origens no Ingress=['203.0.113.0/24'] (restrição de acesso)"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 9.004200000001239e-05,
+      "elapsed_seconds": 0.0031172510000000153
+    },
+    {
+      "scenario_id": "12-nginx-lb-aberto-com-allowlist",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/12-nginx-lb-aberto-com-allowlist/manifests.yaml",
+      "manifest_sha256": "e0ea958154b12ce80817d4e78646de396a03358df3cb41a64a5135d8ea86f881",
+      "snapshot_path": "scenarios/12-nginx-lb-aberto-com-allowlist/cloud.json",
+      "snapshot_sha256": "e92993792c1c1815a90c43454865467e6238106e27611ae8ceed84ae48df52c8",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Ingress/demo/web",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Ingress demo/web class=nginx hosts=['app.exemplo.test']",
+                  "[manifesto] sem TLS",
+                  "[manifesto] exposição herdada do Service do controlador demo/ingress-nginx-controller",
+                  "[manifesto] Service demo/ingress-nginx-controller type=LoadBalancer",
+                  "[nuvem] LB ngx: Scheme=internet-facing",
+                  "[nuvem] entrada permitida pelos SGs do LB: ['0.0.0.0/0']",
+                  "[manifesto] allowlist de origens no Ingress=['203.0.113.0/24'] (restrição de acesso)"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 8.358299999999819e-05,
+      "elapsed_seconds": 0.003129167000000016
+    },
+    {
+      "scenario_id": "13-nodeport-nos-privados",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/13-nodeport-nos-privados/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "low"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "low",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "low",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[aviso] sem fatos da nuvem sobre os nós: pior caso assumido"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.324999999999468e-05,
+      "elapsed_seconds": 0.0018172920000000259
+    },
+    {
+      "scenario_id": "13-nodeport-nos-privados",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/13-nodeport-nos-privados/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": "scenarios/13-nodeport-nos-privados/cloud.json",
+      "snapshot_sha256": "fbc582e4190b643864a7ecae83801851348d077a70f0bec941a982f5e7c02e76",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[nuvem] nós sem IP público"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 3.7583000000007694e-05,
+      "elapsed_seconds": 0.0018285830000000225
+    },
+    {
+      "scenario_id": "14-nodeport-nos-publicos-sg-aberto",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/14-nodeport-nos-publicos-sg-aberto/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "low"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "low",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "low",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[aviso] sem fatos da nuvem sobre os nós: pior caso assumido"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.4874999999999776e-05,
+      "elapsed_seconds": 0.0017763739999999972
+    },
+    {
+      "scenario_id": "14-nodeport-nos-publicos-sg-aberto",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/14-nodeport-nos-publicos-sg-aberto/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": "scenarios/14-nodeport-nos-publicos-sg-aberto/cloud.json",
+      "snapshot_sha256": "7b57942f6cfee6a0634e7b56dc83522681b16daf6abc12de4998f57ec6c4fde6",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "open",
+      "historical_label_sha256": "79b7ad816beb2f521016e8e3762cf26f0cafe6c72fd7ddceb8eb53950e8e28a9",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[nuvem] 1 nó(s) com IP público",
+                  "[nuvem] entrada permitida nas portas do NodePort: ['0.0.0.0/0']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.229199999999933e-05,
+      "elapsed_seconds": 0.0017916239999999917
+    },
+    {
+      "scenario_id": "15-nodeport-nos-publicos-sg-restrito",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/15-nodeport-nos-publicos-sg-restrito/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "open",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "low"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "open",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "open",
+            "confidence": "low",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "open",
+                "confidence": "low",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[aviso] sem fatos da nuvem sobre os nós: pior caso assumido"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 5.758299999999994e-05,
+      "elapsed_seconds": 0.0018419580000000046
+    },
+    {
+      "scenario_id": "15-nodeport-nos-publicos-sg-restrito",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/15-nodeport-nos-publicos-sg-restrito/manifests.yaml",
+      "manifest_sha256": "2f8abcc6269ac903f94ad84055785d4b7a13e914a90bb79ca92ab646f6ac4fd6",
+      "snapshot_path": "scenarios/15-nodeport-nos-publicos-sg-restrito/cloud.json",
+      "snapshot_sha256": "dcae92cff11c75ee554d516229d13a71f9258f0c0c1ac36413e68c3941c8406b",
+      "snapshot_validation": "valid_structural_subset",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "high"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "high",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "high",
+                "evidence": [
+                  "[manifesto] Service demo/web type=NodePort",
+                  "[nuvem] 1 nó(s) com IP público",
+                  "[nuvem] entrada permitida nas portas do NodePort: ['198.51.100.0/24']"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.400000000001625e-05,
+      "elapsed_seconds": 0.0018466250000000184
+    },
+    {
+      "scenario_id": "16-nlb-controlador-aws-padrao-interno",
+      "configuration": "B1",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/16-nlb-controlador-aws-padrao-interno/manifests.yaml",
+      "manifest_sha256": "bdcddfff8a88913e4e22db6d1f3bc0348efd6c6e9fda749ef5fe551f150ceded",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "not_used",
+      "snapshot_origin": null,
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": "controlled",
+      "legacy_confidence_by_workload": [
+        {
+          "workload": "Deployment/demo/app",
+          "confidence": "medium"
+        }
+      ],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": {
+        "system_exposure": "controlled",
+        "workloads": [
+          {
+            "workload": "Deployment/demo/app",
+            "exposure": "controlled",
+            "confidence": "medium",
+            "entrypoints": [
+              {
+                "entrypoint": "Service/demo/web",
+                "level": "controlled",
+                "confidence": "medium",
+                "evidence": [
+                  "[manifesto] Service demo/web type=LoadBalancer",
+                  "[manifesto] anotação/controlador indica LB interno",
+                  "[aviso] sem fatos da nuvem para este LB: nível inferido só do manifesto"
+                ]
+              }
+            ],
+            "notes": []
+          }
+        ]
+      },
+      "status": "ok",
+      "not_applicable_reason": null,
+      "errors": [],
+      "classification_attempted": true,
+      "classifier_elapsed_seconds": 4.5709000000004885e-05,
+      "elapsed_seconds": 0.001810209000000007
+    },
+    {
+      "scenario_id": "16-nlb-controlador-aws-padrao-interno",
+      "configuration": "B2",
+      "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+      "python_version": "3.9.6",
+      "pyyaml_version": "6.0.3",
+      "manifest_path": "scenarios/16-nlb-controlador-aws-padrao-interno/manifests.yaml",
+      "manifest_sha256": "bdcddfff8a88913e4e22db6d1f3bc0348efd6c6e9fda749ef5fe551f150ceded",
+      "snapshot_path": null,
+      "snapshot_sha256": null,
+      "snapshot_validation": "missing",
+      "snapshot_origin": "synthetic",
+      "historical_label": "controlled",
+      "historical_label_sha256": "88ccb173050f0a0f2bcd99f8756a83bc751c605deb71e62e38a2181c2f85c013",
+      "classification": null,
+      "legacy_confidence_by_workload": [],
+      "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+      "result": null,
+      "status": "not_applicable",
+      "not_applicable_reason": "snapshot_missing",
+      "errors": [],
+      "classification_attempted": false,
+      "classifier_elapsed_seconds": null,
+      "elapsed_seconds": 0.0017637919999999863
+    }
+  ]
+}

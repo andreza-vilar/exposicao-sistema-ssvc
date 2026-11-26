@@ -1,0 +1,8 @@
+Cenários: 16; B1 OK: 16; B2 OK: 10; pares: 10
+B1 pareado: 7/10 (70.0%)
+B2 pareado: 10/10 (100.0%)
+Mudanças de categoria: 3/10 (30.0%)
+Grupos: {"increase": 1, "decrease": 2, "confidence_only": 7, "unchanged": 0}
+Não aplicáveis: 6; registros com erros: 0
+Concordância com rótulos sintéticos históricos; não é acurácia científica.
+Resultados: results/cp01.2

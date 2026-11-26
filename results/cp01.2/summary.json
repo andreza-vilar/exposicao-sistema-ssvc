@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "classifier_sha256": "923c98497639bd9a7a05c79f98a9a252c1b0ef840af985750c6eeb7c1eabec7b",
+    "executor_sha256": "75392fd963847c6c91b3c866440ab6d49951b04da9b2e2289670e847a00dd751",
+    "python_version": "3.9.6",
+    "pyyaml_version": "6.0.3",
+    "created_at_utc": "2026-11-26T05:05:34.997875+00:00",
+    "scenarios_root": "scenarios",
+    "snapshot_origin": "synthetic",
+    "confidence_semantics": "Confiança heurística legada (low/medium/high), não calibrada.",
+    "manifest_annotations_available_in_b1": true,
+    "unit_of_analysis": "legacy_workload_and_system_maximum"
+  },
+  "total_scenarios": 16,
+  "b2_snapshot_files": 10,
+  "b2_valid_snapshots": 10,
+  "eligible_pairs": 10,
+  "all_scenarios": {
+    "B1": {
+      "records": 16,
+      "successful_executions": 16,
+      "classification_attempts": 16,
+      "status_counts": {
+        "ok": 16,
+        "not_applicable": 0,
+        "error": 0
+      },
+      "category_distribution": {
+        "small": 1,
+        "controlled": 8,
+        "open": 7
+      },
+      "historical_agreement": {
+        "numerator": 13,
+        "denominator": 16,
+        "proportion": 0.8125
+      },
+      "underestimates_vs_historical": {
+        "numerator": 1,
+        "denominator": 16,
+        "proportion": 0.0625
+      },
+      "overestimates_vs_historical": {
+        "numerator": 2,
+        "denominator": 16,
+        "proportion": 0.125
+      },
+      "classifier_elapsed_seconds_sum": 0.001024167999999978
+    },
+    "B2": {
+      "records": 16,
+      "successful_executions": 10,
+      "classification_attempts": 10,
+      "status_counts": {
+        "ok": 10,
+        "not_applicable": 6,
+        "error": 0
+      },
+      "category_distribution": {
+        "small": 0,
+        "controlled": 5,
+        "open": 5
+      },
+      "historical_agreement": {
+        "numerator": 10,
+        "denominator": 10,
+        "proportion": 1.0
+      },
+      "underestimates_vs_historical": {
+        "numerator": 0,
+        "denominator": 10,
+        "proportion": 0.0
+      },
+      "overestimates_vs_historical": {
+        "numerator": 0,
+        "denominator": 10,
+        "proportion": 0.0
+      },
+      "classifier_elapsed_seconds_sum": 0.0005785000000000512
+    }
+  },
+  "paired_subset": {
+    "B1": {
+      "records": 10,
+      "successful_executions": 10,
+      "classification_attempts": 10,
+      "status_counts": {
+        "ok": 10,
+        "not_applicable": 0,
+        "error": 0
+      },
+      "category_distribution": {
+        "small": 0,
+        "controlled": 4,
+        "open": 6
+      },
+      "historical_agreement": {
+        "numerator": 7,
+        "denominator": 10,
+        "proportion": 0.7
+      },
+      "underestimates_vs_historical": {
+        "numerator": 1,
+        "denominator": 10,
+        "proportion": 0.1
+      },
+      "overestimates_vs_historical": {
+        "numerator": 2,
+        "denominator": 10,
+        "proportion": 0.2
+      },
+      "classifier_elapsed_seconds_sum": 0.0006796659999999954
+    },
+    "B2": {
+      "records": 10,
+      "successful_executions": 10,
+      "classification_attempts": 10,
+      "status_counts": {
+        "ok": 10,
+        "not_applicable": 0,
+        "error": 0
+      },
+      "category_distribution": {
+        "small": 0,
+        "controlled": 5,
+        "open": 5
+      },
+      "historical_agreement": {
+        "numerator": 10,
+        "denominator": 10,
+        "proportion": 1.0
+      },
+      "underestimates_vs_historical": {
+        "numerator": 0,
+        "denominator": 10,
+        "proportion": 0.0
+      },
+      "overestimates_vs_historical": {
+        "numerator": 0,
+        "denominator": 10,
+        "proportion": 0.0
+      },
+      "classifier_elapsed_seconds_sum": 0.0005785000000000512
+    }
+  },
+  "transition_b1_to_b2": {
+    "small": {
+      "small": 0,
+      "controlled": 0,
+      "open": 0
+    },
+    "controlled": {
+      "small": 0,
+      "controlled": 3,
+      "open": 1
+    },
+    "open": {
+      "small": 0,
+      "controlled": 2,
+      "open": 4
+    }
+  },
+  "category_changes": {
+    "numerator": 3,
+    "denominator": 10,
+    "proportion": 0.3
+  },
+  "change_groups": {
+    "increase": 1,
+    "decrease": 2,
+    "confidence_only": 7,
+    "unchanged": 0
+  },
+  "historical_agreement_changes": {
+    "gained": 3,
+    "lost": 0,
+    "unchanged": 7
+  },
+  "non_applicable": [
+    {
+      "scenario_id": "01-clusterip-netpol-restritiva",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    },
+    {
+      "scenario_id": "02-clusterip-sem-netpol",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    },
+    {
+      "scenario_id": "03-clusterip-netpol-permissiva",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    },
+    {
+      "scenario_id": "08-lb-sem-fatos-de-nuvem",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    },
+    {
+      "scenario_id": "10-alb-interno-padrao",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    },
+    {
+      "scenario_id": "16-nlb-controlador-aws-padrao-interno",
+      "configuration": "B2",
+      "reason": "snapshot_missing"
+    }
+  ],
+  "errors": [],
+  "wall_elapsed_seconds": 0.037604625,
+  "timing_semantics": "Tempos variam; wall exclui exportação; soma classifier mede análise+cópia. elapsed individual inclui preparação compartilhada e não é aditivo.",
+  "interpretation": "Concordância com rótulos sintéticos históricos; não é acurácia científica.",
+  "ordinal_semantics": "Small < Controlled < Open indica direção; não escala quantitativa de risco.",
+  "b0_status": "pending_author_confirmation_not_executed"
+}
